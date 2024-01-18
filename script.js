@@ -20,8 +20,25 @@ const gameBoard = (function () {
             return 'Cell is already filled';
         }
         grid[row][column] = marker;
+    }
 
-        return grid;
+    const checkRows = function (marker) {
+        for (const row in grid) {
+            if (grid[row].every(cell => cell === marker)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    const checkColumns = function (marker) {
+        const columns = Object.keys(grid).map(row => Object.values(grid[row]));
+        for (const col in columns) {
+            if (columns[col].every(cell => cell === marker)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     return { markCell }
