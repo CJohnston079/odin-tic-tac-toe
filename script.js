@@ -22,6 +22,10 @@ const gameBoard = (function () {
         grid[row][column] = marker;
     }
 
+    const checkForWinner = function (marker) {
+        return checkRows(marker) || checkColumns(marker) || checkDiagonals(marker);
+    }
+
     const checkRows = function (marker) {
         for (const row in grid) {
             if (grid[row].every(cell => cell === marker)) {
@@ -43,8 +47,8 @@ const gameBoard = (function () {
 
     const checkDiagonals = function (marker) {
         const diagonals = [
-            [grid[a][0], grid[b][1], grid[c][2]],
-            [grid[a][2], grid[b][1], grid[c][0]]
+            [grid['a'][0], grid['b'][1], grid['c'][2]],
+            [grid['a'][2], grid['b'][1], grid['c'][0]]
         ]
         for (const diagonal of diagonals) {
             if (diagonal.every(cell => cell === marker)) {
