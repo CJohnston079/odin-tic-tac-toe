@@ -41,5 +41,18 @@ const gameBoard = (function () {
         return false;
     }
 
+    const checkDiagonals = function (marker) {
+        const diagonals = [
+            [grid[a][0], grid[b][1], grid[c][2]],
+            [grid[a][2], grid[b][1], grid[c][0]]
+        ]
+        for (const diagonal of diagonals) {
+            if (diagonal.every(cell => cell === marker)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     return { markCell }
 })();
