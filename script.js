@@ -22,6 +22,10 @@ const gameBoard = (function () {
         grid[row][column] = marker;
     }
 
+    const clearAllCells = function () {
+        Object.values(grid).forEach(row => row.fill(''));
+    }
+
     const checkForWinner = function (marker) {
         return checkRows(marker) || checkColumns(marker) || checkDiagonals(marker);
     }
