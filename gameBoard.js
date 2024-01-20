@@ -55,4 +55,4 @@ const gameBoard = (function () {
     return { markCell }
 })();
 
-module.exports(gameBoard);
+module.exports = { gameBoard };
