@@ -5,15 +5,14 @@ const gameBoard = (function () {
         c: ['', '', '']
     };
 
+    const getGrid = () => grid;
+    const resetGrid = () => Object.values(grid).forEach(row => row.fill(''));
+
     const markCell = function (row, column, marker) {
         if (grid[row][column] !== '') {
             return 'Cell is already filled';
         }
         grid[row][column] = marker;
-    }
-
-    const clearAllCells = function () {
-        Object.values(grid).forEach(row => row.fill(''));
     }
 
     const checkForWinner = function (marker) {
@@ -52,7 +51,7 @@ const gameBoard = (function () {
         return false;
     }
 
-    return { markCell }
+    return { getGrid, resetGrid, markCell }
 })();
 
 module.exports = { gameBoard };
