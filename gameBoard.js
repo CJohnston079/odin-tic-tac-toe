@@ -10,10 +10,10 @@ const gameBoard = (function () {
 
     const markCell = function (row, column, marker) {
         if (!(row in grid) || column > grid['a'].length) {
-            return 'Cell is out of bounds';
+            throw 'Cell is out of bounds';
         }
         if (grid[row][column] !== '') {
-            return 'Cell is already filled';
+            throw 'Cell is already filled';
         }
         grid[row][column] = marker;
     }

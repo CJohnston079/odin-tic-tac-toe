@@ -1,6 +1,6 @@
 const { gameBoard } = require('../gameBoard');
 
-describe.only('getGrid', () => {
+describe('getGrid', () => {
     it('should reuturn the grid object', () => {
         const expected = { a: ['', '', ''], b: ['', '', ''], c: ['', '', ''] };
         expect(gameBoard.getGrid()).toEqual(expected);
@@ -23,16 +23,18 @@ describe("markCell", () => {
     beforeEach(() => {
         gameBoard.resetGrid();
     });
-    it("should return 'Cell is out of bounds' if row or column is invalid", () => {
-        const invalidRowInput = gameBoard.markCell('d', 1, 'x');
-        const invalidColInput = gameBoard.markCell('a', 4, 'x');
-        expect(invalidRowInput).toBe('Cell is out of bounds');
-        expect(invalidColInput).toBe('Cell is out of bounds');
+    it("should throw 'Cell is out of bounds' if row or column is invalid", () => {
+        const invalidRowInput = () => gameBoard.markCell('d', 1, 'x');
+        const invalidColInput = () => gameBoard.markCell('a', 4, 'x');
+        expect(invalidRowInput).toThrow('Cell is out of bounds');
+        expect(invalidColInput).toThrow('Cell is out of bounds');
     })
-    it("should return 'Cell is already filled' if the cell is already marked", () => {
-        gameBoard.markCell('b', 1, 'O');
-        const result = gameBoard.markCell('b', 1, 'x');
-        expect(result).toBe('Cell is already filled');
+    it("should throw 'Cell is already filled' if the cell is already marked", () => {
+        const markFilledCell = () => {
+            gameBoard.markCell('b', 1, 'O');
+            gameBoard.markCell('b', 1, 'x');
+        }
+        expect(markFilledCell).toThrow('Cell is already filled');
     });
     it("should mark a cell with the specified marker", () => {
         gameBoard.markCell('a', 0, 'x');
