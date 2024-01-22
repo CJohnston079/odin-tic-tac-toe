@@ -32,9 +32,8 @@ const gameBoard = (function () {
     }
 
     const checkColumns = function (marker) {
-        const columns = Object.keys(grid).map(row => Object.values(grid[row]));
-        for (const col in columns) {
-            if (columns[col].every(cell => cell === marker)) {
+        for (let i = 0; i < grid['a'].length; i += 1) {
+            if (['a', 'b', 'c'].every(row => grid[row][i] === marker)) {
                 return true;
             }
         }
@@ -46,8 +45,8 @@ const gameBoard = (function () {
             [grid['a'][0], grid['b'][1], grid['c'][2]],
             [grid['a'][2], grid['b'][1], grid['c'][0]]
         ]
-        for (const diagonal of diagonals) {
-            if (diagonal.every(cell => cell === marker)) {
+        for (const diagonal in diagonals) {
+            if (diagonals[diagonal].every(cell => cell === marker)) {
                 return true;
             }
         }

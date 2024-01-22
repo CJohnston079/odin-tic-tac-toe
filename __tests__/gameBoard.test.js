@@ -46,7 +46,7 @@ describe('markCell', () => {
     });
 });
 
-describe.only('checkForWinner', () => {
+describe('checkForWinner', () => {
     beforeEach(() => {
         gameBoard.resetGrid();
     })
