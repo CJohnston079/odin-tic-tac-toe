@@ -1,5 +1,12 @@
 const { gameBoard } = require('../gameBoard');
 
+describe.only('getGrid', () => {
+    it('should reuturn the grid object', () => {
+        const expected = { a: ['', '', ''], b: ['', '', ''], c: ['', '', ''] };
+        expect(gameBoard.getGrid()).toEqual(expected);
+    });
+});
+
 describe("resetGrid", () => {
     beforeEach(() => {
         gameBoard.markCell('b', 1, 'x');
