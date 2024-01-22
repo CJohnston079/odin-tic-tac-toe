@@ -4,7 +4,8 @@
   "description": "The classic turn-based connect-three game!",
   "main": "script.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "watch": "jest --watch *.js __tests__/*"
   },
   "keywords": [],
   "author": "",
