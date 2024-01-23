@@ -1,8 +1,8 @@
 const { player } = require('../player');
 
-describe('player', () => {
-    const testPlayer = player('Milo', 'x');
+const testPlayer = player('Milo', 'x');
 
+describe('player', () => {
     it('should have name and marker properties', () => {
         expect(testPlayer).toHaveProperty('name');
         expect(testPlayer).toHaveProperty('marker');
@@ -18,11 +18,13 @@ describe('player', () => {
         expect(testPlayer).toHaveProperty('getIsHuman');
         expect(typeof testPlayer.getIsHuman).toBe('function');
     });
+    it('should have toggleIsHuman method', () => {
+        expect(testPlayer).toHaveProperty('toggleIsHuman');
+        expect(typeof testPlayer.toggleIsHuman).toBe('function');
+    });
 })
 
 describe('getIsHuman', () => {
-    const testPlayer = player('Milo', 'x');
-
     it('should have getIsHuman method', () => {
         expect(testPlayer).toHaveProperty('getIsHuman');
         expect(typeof testPlayer.getIsHuman).toBe('function');
@@ -30,4 +32,17 @@ describe('getIsHuman', () => {
     it('should return player.isHuman', () => {
         expect(testPlayer.getIsHuman()).toBe(false);
     })
+});
+
+describe('toggleIsHuman', () => {
+    it('should have toggleIsHuman method', () => {
+        expect(testPlayer).toHaveProperty('getIsHuman');
+        expect(typeof testPlayer.toggleIsHuman).toBe('function');
+    });
+    it('should toggle player.isHuman between true and false', () => {
+        testPlayer.toggleIsHuman();
+        expect(testPlayer.getIsHuman()).toBe(true);
+        testPlayer.toggleIsHuman();
+        expect(testPlayer.getIsHuman()).toBe(false);
+    });
 });
