@@ -9,7 +9,7 @@ const gameBoard = (function () {
     const resetGrid = () => Object.values(grid).forEach(row => row.fill(''));
 
     const markCell = function (row, column, marker) {
-        if (!(row in grid) || column > grid['a'].length) {
+        if (!(row in grid) || column > grid[0].length) {
             throw 'Cell is out of bounds';
         }
         if (grid[row][column] !== '') {
