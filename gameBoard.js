@@ -23,8 +23,8 @@ const gameBoard = (function () {
     }
 
     const checkRows = function (marker) {
-        for (const row in grid) {
-            if (grid[row].every(cell => cell === marker)) {
+        for (const row of grid) {
+            if (row.every(cell => cell === marker)) {
                 return true;
             }
         }
@@ -32,8 +32,8 @@ const gameBoard = (function () {
     }
 
     const checkColumns = function (marker) {
-        for (let i = 0; i < grid['a'].length; i += 1) {
-            if (['a', 'b', 'c'].every(row => grid[row][i] === marker)) {
+        for (let i = 0; i < grid[0].length; i += 1) {
+            if (grid.every(row => row[i] === marker)) {
                 return true;
             }
         }
@@ -42,11 +42,11 @@ const gameBoard = (function () {
 
     const checkDiagonals = function (marker) {
         const diagonals = [
-            [grid['a'][0], grid['b'][1], grid['c'][2]],
-            [grid['a'][2], grid['b'][1], grid['c'][0]]
-        ]
-        for (const diagonal in diagonals) {
-            if (diagonals[diagonal].every(cell => cell === marker)) {
+            [grid[0][0], grid[1][1], grid[2][2]],
+            [grid[0][2], grid[1][1], grid[2][0]]
+        ];
+        for (const diagonal of diagonals) {
+            if (diagonal.every(cell => cell === marker)) {
                 return true;
             }
         }

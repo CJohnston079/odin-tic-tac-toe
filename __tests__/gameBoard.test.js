@@ -7,7 +7,7 @@ describe('getGrid', () => {
     });
 });
 
-describe.only('resetGrid', () => {
+describe('resetGrid', () => {
     beforeEach(() => {
         gameBoard.markCell(1, 1, 'x');
         gameBoard.markCell(0, 2, 'o');
@@ -49,26 +49,26 @@ describe('markCell', () => {
 describe('checkForWinner', () => {
     beforeEach(() => {
         gameBoard.resetGrid();
-    })
+    });
     it('should return false if no winner is found', () => {
         expect(gameBoard.checkForWinner('x')).toBe(false);
     });
     it('should return true if any row has been filled', () => {
-        gameBoard.markCell('a', 0, 'x');
-        gameBoard.markCell('a', 1, 'x');
-        gameBoard.markCell('a', 2, 'x');
+        gameBoard.markCell(0, 0, 'x');
+        gameBoard.markCell(0, 1, 'x');
+        gameBoard.markCell(0, 2, 'x');
         expect(gameBoard.checkForWinner('x')).toBe(true);
     });
     it('should return true if any column has been filled', () => {
-        gameBoard.markCell('a', 0, 'x');
-        gameBoard.markCell('b', 0, 'x');
-        gameBoard.markCell('c', 0, 'x');
+        gameBoard.markCell(0, 0, 'x');
+        gameBoard.markCell(1, 0, 'x');
+        gameBoard.markCell(2, 0, 'x');
         expect(gameBoard.checkForWinner('x')).toBe(true);
     });
     it('should return true if any diagonal has been filled', () => {
-        gameBoard.markCell('a', 0, 'x');
-        gameBoard.markCell('b', 1, 'x');
-        gameBoard.markCell('c', 2, 'x');
+        gameBoard.markCell(0, 0, 'x');
+        gameBoard.markCell(1, 1, 'x');
+        gameBoard.markCell(2, 2, 'x');
         expect(gameBoard.checkForWinner('x')).toBe(true);
     });
 });
