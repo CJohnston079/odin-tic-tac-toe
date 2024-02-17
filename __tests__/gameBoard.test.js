@@ -1,8 +1,8 @@
 const { gameBoard } = require('../gameBoard');
 
-describe('getGrid', () => {
+describe.only('getGrid', () => {
     it('should reuturn the grid object', () => {
-        const expected = { a: ['', '', ''], b: ['', '', ''], c: ['', '', ''] };
+        const expected = [['', '', ''], ['', '', ''], ['', '', '']];
         expect(gameBoard.getGrid()).toEqual(expected);
     });
 });

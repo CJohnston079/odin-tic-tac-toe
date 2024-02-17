@@ -1,9 +1,9 @@
 const gameBoard = (function () {
-    const grid = {
-        a: ['', '', ''],
-        b: ['', '', ''],
-        c: ['', '', '']
-    };
+    const grid = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+    ];
 
     const getGrid = () => grid;
     const resetGrid = () => Object.values(grid).forEach(row => row.fill(''));
