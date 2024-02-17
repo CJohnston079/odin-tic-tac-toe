@@ -7,19 +7,19 @@ describe('getGrid', () => {
     });
 });
 
-describe('resetGrid', () => {
+describe.only('resetGrid', () => {
     beforeEach(() => {
-        gameBoard.markCell('b', 1, 'x');
-        gameBoard.markCell('a', 2, 'o');
+        gameBoard.markCell(1, 1, 'x');
+        gameBoard.markCell(0, 2, 'o');
     });
     it('should set each value in a grid to empty', () => {
         gameBoard.resetGrid();
-        const result = Object.values(gameBoard.getGrid()).flat();
+        const result = gameBoard.getGrid().flat();
         result.forEach(cell => expect(cell).toBe(''));
-    })
+    });
 });
 
-describe.only('markCell', () => {
+describe('markCell', () => {
     beforeEach(() => {
         gameBoard.resetGrid();
     });

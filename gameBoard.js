@@ -6,7 +6,7 @@ const gameBoard = (function () {
     ];
 
     const getGrid = () => grid;
-    const resetGrid = () => Object.values(grid).forEach(row => row.fill(''));
+    const resetGrid = () => grid.forEach(row => row.fill(''));
 
     const markCell = function (row, column, marker) {
         if (!(row in grid) || column > grid[0].length) {
