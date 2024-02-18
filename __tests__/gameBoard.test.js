@@ -2,7 +2,7 @@ const { gameBoard } = require('../gameBoard');
 
 describe('getGrid', () => {
     it('should reuturn the grid object', () => {
-        const expected = [['', '', ''], ['', '', ''], ['', '', '']];
+        const expected = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
         expect(gameBoard.getGrid()).toEqual(expected);
     });
 });
@@ -15,7 +15,7 @@ describe('resetGrid', () => {
     it('should set each value in a grid to empty', () => {
         gameBoard.resetGrid();
         const result = gameBoard.getGrid().flat();
-        result.forEach(cell => expect(cell).toBe(''));
+        result.forEach(cell => expect(cell).toBe(' '));
     });
 });
 

@@ -1,18 +1,18 @@
 const gameBoard = (function () {
     const grid = [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', '']
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
     ];
 
     const getGrid = () => grid;
-    const resetGrid = () => grid.forEach(row => row.fill(''));
+    const resetGrid = () => grid.forEach(row => row.fill(' '));
 
     const markCell = function (row, column, marker) {
         if (!(row in grid) || column > grid[0].length) {
             throw 'Cell is out of bounds';
         }
-        if (grid[row][column] !== '') {
+        if (grid[row][column] !== ' ') {
             throw 'Cell is already filled';
         }
         grid[row][column] = marker;
