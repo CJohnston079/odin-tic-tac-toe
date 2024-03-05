@@ -20,4 +20,4 @@ const player = function (name, marker) {
 	};
 };
 
-module.exports = { player };
+export default player;

@@ -1,3 +1,3 @@
-const gameController = require("../gameController");
+import gameController from "../gameController";
 
 describe("gameController", () => {});

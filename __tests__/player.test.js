@@ -1,5 +1,4 @@
-const { experiments } = require("webpack");
-const { player } = require("../player");
+import player from "../player";
 
 const testPlayer = player("Milo", "x");
 

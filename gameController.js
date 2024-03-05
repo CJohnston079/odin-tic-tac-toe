@@ -2,4 +2,4 @@ const gameController = function () {
 	return;
 };
 
-module.exports = gameController;
+export default gameController;

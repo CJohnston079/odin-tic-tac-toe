@@ -56,4 +56,4 @@ const gameBoard = (function () {
 	return { getGrid, resetGrid, markCell, checkForWinner };
 })();
 
-module.exports = { gameBoard };
+export default gameBoard;

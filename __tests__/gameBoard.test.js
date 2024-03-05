@@ -1,4 +1,4 @@
-const { gameBoard } = require("../gameBoard");
+import gameBoard from "../gameBoard";
 
 describe("getGrid", () => {
 	it("should reuturn the grid object", () => {
