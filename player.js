@@ -1,4 +1,4 @@
-const player = function (name, marker) {
+const player = function ({ name = "player", marker }) {
 	let isHuman = false;
 	let score = 0;
 

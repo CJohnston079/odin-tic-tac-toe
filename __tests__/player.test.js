@@ -1,6 +1,6 @@
 import player from "../player";
 
-const testPlayer = player("Milo", "x");
+const testPlayer = player({ name: "Milo", marker: "x" });
 
 describe("player", () => {
 	it("should have name and marker properties", () => {
